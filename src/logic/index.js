@@ -1,6 +1,6 @@
-const userService = require('./user');
-const policyService = require('./policy');
-const clientService = require('./client');
+const userService = require('./userService');
+const policyService = require('./policyService');
+const clientService = require('./clientService');
 
 module.exports = {
   userService,

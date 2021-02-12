@@ -10,10 +10,8 @@ function routeHandler(callback, res) {
       .catch((err) => {
         const { message, extra } = err;
 
-        if (err instanceof AuthError) {
+        if (err instanceof AuthError || err instanceof NotAllowedError) {
           res.status(401);
-        } else if (err instanceof NotAllowedError) {
-          res.status(403);
         } else if (err instanceof NotFoundError) {
           res.status(404);
         } else {
@@ -21,6 +19,7 @@ function routeHandler(callback, res) {
         }
 
         res.json({
+          code: res.statusCode,
           error: message,
           data: extra,
         });
@@ -35,6 +34,7 @@ function routeHandler(callback, res) {
     }
 
     res.json({
+      code: res.statusCode,
       error: message,
     });
   }
