@@ -28,7 +28,7 @@ router.get('/clients', [bearerParserToken, authorize([Role.admin, Role.users])],
 router.get('/clients/:clientId', [bearerParserToken, authorize([Role.admin, Role.users])], (req, res) => {
   const { sub, role, id } = req;
   const { clientId } = req.params;
-  console.log(sub);
+
   routeHandler(async () => {
     const clients = await clientService.getClientsById({
       token: sub, clientId, role, id,
@@ -51,7 +51,7 @@ router.get('/clients/:clientId/policies', [bearerParserToken, authorize([Role.ad
     });
 
     res.json({
-      message: 'clients found',
+      message: 'policies found',
       data: clients,
     });
   }, res);

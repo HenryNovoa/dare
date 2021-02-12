@@ -10,7 +10,6 @@ const clientData = async ({ token }) => {
       Authorization: `Bearer ${token}`,
     },
   });
-
   return response && response.data;
 };
 

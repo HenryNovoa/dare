@@ -19,8 +19,6 @@ function authorize(args = []) {
     try {
       const { token } = req;
       const { sub, role, id } = jwt.verify(token, JWT_SECRET);
-      console.log(role);
-      console.log(roles);
       // If there are roles and is included in the role that the json web token gave us
       if (roles.length && !roles.includes(role)) {
         throw new NotAllowedError('Insufficient Permissions');

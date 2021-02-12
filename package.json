@@ -4,7 +4,9 @@
   "description": "The goal of this project is to build an API REST following the specified guidelines.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "unit-test": "npx mocha src/tests/unit",
+    "integration-test": "npx mocha src/tests/integration",
+    "end-to-end-test": "npx mocha src/tests/end-to-end",
     "eslint-init": "eslint --init",
     "nodemon": "nodemon server.js"
   },
@@ -35,6 +37,7 @@
     "eslint-plugin-import": "^2.22.1",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
-    "sinon": "^9.2.4"
+    "sinon": "^9.2.4",
+    "supertest": "^6.1.3"
   }
 }

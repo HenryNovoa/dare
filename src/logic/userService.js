@@ -32,6 +32,7 @@ const userService = {
       let clientToken;
       try {
         response = await credentialsData();
+
         clientToken = response && response.token;
         user = await clientService.getClientsByUsername({ token: clientToken, username });
       } catch (err) {
